@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.15.1/dist/tf.min.js"></script>
+        <script src="index.js"></script>
+        </head>
+    <body>
+        <div ng-app="myapp" ng-controller="myctrl" class="container">
+            <p></p>
+        </div>
+    </body>
+    <script>
+        var app = angular.module("myapp",[]);
+        app.controller("myctrl",function($scope,$http)
+        {
+            $scope.tt = "Akshat";
+            $http.get("myfile.php").then(function(response)
+            {
+                $scope.tt = response.data.records;
+            });
+        });
+    </script>
+</html>
